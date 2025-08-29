@@ -1,10 +1,4 @@
 # CompliancePro
----
-### **Cómo Usarlo**
-
-1.  En la carpeta raíz de tu repositorio (la que contiene tanto la carpeta del backend `ComplianceCoreApi` como la del frontend), crea un archivo llamado `README.md`.
-2.  Copia y pega el siguiente contenido en ese archivo.
-3.  Guarda y súbelo a tu repositorio de Git.
 
 ---
 

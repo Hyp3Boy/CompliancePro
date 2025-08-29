@@ -1,13 +1,3 @@
-# CompliancePro
----
-### **Cómo Usarlo**
-
-1.  En la carpeta raíz de tu repositorio (la que contiene tanto la carpeta del backend `ComplianceCoreApi` como la del frontend), crea un archivo llamado `README.md`.
-2.  Copia y pega el siguiente contenido en ese archivo.
-3.  Guarda y súbelo a tu repositorio de Git.
-
----
-
 # CompliancePro Search Tool
 
 ![Project Demo GIF](https://via.placeholder.com/800x400.gif?text=Añade+un+GIF+de+demostración+aquí)
@@ -25,7 +15,7 @@ CompliancePro es una herramienta de software integral diseñada para automatizar
   - [✨ Características Principales](#-características-principales)
   - [🛠️ Stack Tecnológico](#️-stack-tecnológico)
     - [Backend (`ComplianceCoreApi`)](#backend-compliancecoreapi)
-    - [Frontend (`ComplianceProUI` - *ajusta el nombre si es diferente*)](#frontend-complianceproui---ajusta-el-nombre-si-es-diferente)
+    - [Frontend (`ComplianceProUI`)](#frontend-complianceproui)
   - [🚀 Getting Started](#-getting-started)
     - [Prerrequisitos](#prerrequisitos)
     - [Instalación y Configuración](#instalación-y-configuración)

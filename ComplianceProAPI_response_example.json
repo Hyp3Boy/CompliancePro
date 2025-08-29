@@ -1,0 +1,148 @@
+{
+    "hitCount": 13,
+    "results": [
+        {
+            "source": "The World Bank",
+            "data": {
+                "Firm Name": "ASIA PACIFIC CONSULTANT JOINT STOCK COMPANY",
+                "Address": "NO. 2, LANE 12, NGUYEN NGOC NAI STREET, KHUONG MAI WARD, THANH XUAN DISTRICT",
+                "Country": "Viet Nam",
+                "From Date": "2018-11-29",
+                "To Date": "2999-12-31",
+                "Grounds": "Para. 1.22(a)(ii), May 2010 Consultant Guidelines"
+            }
+        },
+        {
+            "source": "OFAC Sanctions List",
+            "data": {
+                "Name": "ASIA PACIFIC LINKS LIMITED",
+                "Address": "Shing Hing Commercial Building, Office 8E; 21-27 Wing Kut Street",
+                "Type": "Entity",
+                "Program(s)": "RUSSIA-EO14024",
+                "List": "SDN",
+                "Score": "100"
+            }
+        },
+        {
+            "source": "OFAC Sanctions List",
+            "data": {
+                "Name": "HUIHAI PACIFIC",
+                "Address": "&nbsp;",
+                "Type": "Vessel",
+                "Program(s)": "RUSSIA-EO14024; UKRAINE-EO13662",
+                "List": "SDN",
+                "Score": "100"
+            }
+        },
+        {
+            "source": "OFAC Sanctions List",
+            "data": {
+                "Name": "INTERNATIONAL PACIFIC TRADING, INC.",
+                "Address": "&nbsp;",
+                "Type": "Entity",
+                "Program(s)": "SDNTK",
+                "List": "SDN",
+                "Score": "100"
+            }
+        },
+        {
+            "source": "OFAC Sanctions List",
+            "data": {
+                "Name": "IPS PACIFIC COMPANY LIMITED",
+                "Address": "Suite 2207-09, 22/F; Tower Two, Lippo Centre, 89 Queensway; Admiralty",
+                "Type": "Entity",
+                "Program(s)": "RUSSIA-EO14024",
+                "List": "SDN",
+                "Score": "100"
+            }
+        },
+        {
+            "source": "OFAC Sanctions List",
+            "data": {
+                "Name": "LIMITED LIABILITY COMPANY 'CENTRE OF MANAGEMENT OF THE PROJECT EASTERN SIBERIA-PACIFIC OCEAN'",
+                "Address": "2-B ul. Gorkogo",
+                "Type": "Entity",
+                "Program(s)": "UKRAINE-EO13662",
+                "List": "Non-SDN",
+                "Score": "100"
+            }
+        },
+        {
+            "source": "OFAC Sanctions List",
+            "data": {
+                "Name": "PACIFIC AXIS REAL ESTATE, S.A. DE C.V.",
+                "Address": "&nbsp;",
+                "Type": "Entity",
+                "Program(s)": "ILLICIT-DRUGS-EO14059",
+                "List": "SDN",
+                "Score": "100"
+            }
+        },
+        {
+            "source": "OFAC Sanctions List",
+            "data": {
+                "Name": "PACIFIC OCEAN SHIPPING LIMITED",
+                "Address": "East Shahid Atefi Street 35, Africa Boulevard, PO Box 19395-4833",
+                "Type": "Entity",
+                "Program(s)": "IRAN",
+                "List": "SDN",
+                "Score": "100"
+            }
+        },
+        {
+            "source": "OFAC Sanctions List",
+            "data": {
+                "Name": "PACIFIC SHIPPING &amp; TRANS",
+                "Address": "East Shahid Atefi Street 35, Africa Boulevard, PO Box 19395-4833",
+                "Type": "Entity",
+                "Program(s)": "IRAN",
+                "List": "SDN",
+                "Score": "100"
+            }
+        },
+        {
+            "source": "OFAC Sanctions List",
+            "data": {
+                "Name": "PACIFIC SHIPPING AND TRANS",
+                "Address": "East Shahid Atefi Street 35, Africa Boulevard, PO Box 19395-4833",
+                "Type": "Entity",
+                "Program(s)": "IRAN",
+                "List": "SDN",
+                "Score": "100"
+            }
+        },
+        {
+            "source": "OFAC Sanctions List",
+            "data": {
+                "Name": "PACIFIC SHIPPING AND TRANSPORTATION LIMITED",
+                "Address": "East Shahid Atefi Street 35, Africa Boulevard, PO Box 19395-4833",
+                "Type": "Entity",
+                "Program(s)": "IRAN",
+                "List": "SDN",
+                "Score": "100"
+            }
+        },
+        {
+            "source": "OFAC Sanctions List",
+            "data": {
+                "Name": "PACIFIC STEEL FZE",
+                "Address": "Office Number LB16610, P.O. Box 261027; Jebel Ali Free Zone",
+                "Type": "Entity",
+                "Program(s)": "IRAN-EO13871",
+                "List": "SDN",
+                "Score": "100"
+            }
+        },
+        {
+            "source": "OFAC Sanctions List",
+            "data": {
+                "Name": "TRANS PACIFIC WORLD LEASING LIMITED",
+                "Address": "First Floor International Building; Kumul Highway",
+                "Type": "Entity",
+                "Program(s)": "SDNT",
+                "List": "SDN",
+                "Score": "100"
+            }
+        }
+    ]
+}

@@ -28,6 +28,7 @@
 
 # Configuración de desarrollo local que puede contener secretos
 appsettings.Development.json
+appsettings.json
 
 # Archivos de secretos de usuario
 secrets.json

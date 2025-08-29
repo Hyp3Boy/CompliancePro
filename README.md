@@ -15,7 +15,7 @@ CompliancePro es una herramienta de software integral diseñada para automatizar
   - [✨ Características Principales](#-características-principales)
   - [🛠️ Stack Tecnológico](#️-stack-tecnológico)
     - [Backend (`ComplianceCoreApi`)](#backend-compliancecoreapi)
-    - [Frontend (`ComplianceProUI` - *ajusta el nombre si es diferente*)](#frontend-complianceproui)
+    - [Frontend (`ComplianceProUI`)](#frontend-complianceproui)
   - [🚀 Getting Started](#-getting-started)
     - [Prerrequisitos](#prerrequisitos)
     - [Instalación y Configuración](#instalación-y-configuración)

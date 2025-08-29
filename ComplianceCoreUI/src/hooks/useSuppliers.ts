@@ -1,10 +1,10 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import type { Supplier } from '../types/supplier';
-import { useAuth } from './useAuth'; // Necesitamos el token del usuario autenticado
+import { useAuth } from './useAuth'; 
 import { createSupplier, deleteSupplier, getSuppliers, updateSupplier } from '../api/suppliersAPI';
 export const useSuppliers = () => {
-  const { token } = useAuth(); // Obtenemos el token de autenticación
+  const { token } = useAuth();
   const [suppliers, setSuppliers] = useState<Supplier[]>([]);
   const [isLoading, setIsLoading] = useState(true); // Estado para la carga inicial
   const [error, setError] = useState<string | null>(null);
@@ -72,7 +72,7 @@ export const useSuppliers = () => {
         await createSupplier(supplierData, token);
       }
       handleCloseEditModal();
-      await fetchSuppliers(); // Volvemos a cargar los datos para reflejar los cambios
+      await fetchSuppliers(); 
     } catch (err) {
       setError('Error al guardar el proveedor.');
       console.error(err);

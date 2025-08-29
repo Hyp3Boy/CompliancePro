@@ -2,7 +2,6 @@ import { useState, type ReactNode } from 'react';
 import type { User } from '../types/user';
 import type { LoginFormInputs } from '../utils/validationSchemas';
 import { loginUser } from '../api/authAPI';
-// Importa el contexto desde su nuevo archivo
 import { AuthContext } from '../context/AuthContext';
 
 const getUserFromStorage = (): User | null => {
@@ -12,14 +11,13 @@ const getUserFromStorage = (): User | null => {
       return JSON.parse(storedUser);
     } catch (error) {
       console.error("Error al parsear el usuario desde localStorage", error);
-      localStorage.removeItem('user'); // Limpiar dato corrupto
+      localStorage.removeItem('user'); // Limpiar data
       return null;
     }
   }
   return null;
 };
 
-// 3. Crea el componente "Proveedor" que contendrá toda la lógica
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [token, setToken] = useState<string | null>(() => localStorage.getItem('authToken'));
   const [user, setUser] = useState<User | null>(() => getUserFromStorage());
@@ -50,9 +48,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setUser(null);
   };
 
-  // 4. Proporciona el estado y las funciones a todos los componentes hijos
   const value = { token, user, isLoading, error, login, logout };
 
-  // Usa el AuthContext importado en el Provider
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

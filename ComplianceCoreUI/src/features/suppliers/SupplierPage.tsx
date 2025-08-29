@@ -36,7 +36,6 @@ export const SuppliersPage = () => {
 
   return (
     <Container maxWidth="xl" sx={{ mt: 4 }}>
-      {/* --- CABECERA DE LA PÁGINA (Sin cambios) --- */}
       <Box
         sx={{
           display: 'flex',

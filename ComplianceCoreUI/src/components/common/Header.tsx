@@ -54,7 +54,6 @@ export const Header = () => {
                   vertical: 'top', 
                   horizontal: 'right',
                 }}
-                // ------------------------------------
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >

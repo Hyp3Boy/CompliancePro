@@ -11,7 +11,6 @@ export const Layout = ({ children }: LayoutProps) => {
     <>
       <Header />
       <Toolbar />
-      {/* Agrega un Toolbar para empujar el contenido hacia abajo y evitar que quede oculto detrás del Header */}
       <Box component="main">
         {children}
       </Box>

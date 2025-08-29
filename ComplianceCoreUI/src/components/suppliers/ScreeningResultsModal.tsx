@@ -110,7 +110,7 @@ export const ScreeningResultsModal = ({ open, onClose, supplier }: ScreeningModa
                 <DataGrid
                   rows={results?.offshoreLeaks ?? []} 
                   columns={offshoreColumns}
-                  slots={{ noRowsOverlay: CustomNoRowsOverlay }} // <-- ¡Aquí está la magia!
+                  slots={{ noRowsOverlay: CustomNoRowsOverlay }} 
                   pageSizeOptions={[5]}
                 />
               </Paper>

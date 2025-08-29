@@ -28,8 +28,8 @@ public class ICIJClient : IEntitySearchProvider
         
         await using var browser = await playwright.Chromium.LaunchAsync(new() 
         { 
-            Headless = true, // Mantenlo en 'false' para ver la magia
-            SlowMo = 200      // Ralentiza un poco para que sea fácil seguirlo
+            Headless = true, 
+            SlowMo = 200      
         });
         
         var page = await browser.NewPageAsync();
@@ -62,12 +62,10 @@ public class ICIJClient : IEntitySearchProvider
             {
                 _logger.LogInformation("Cargando página de resultados #{PageCount}...", pageCount);
                 await moreResultsButton.ClickAsync();
-                // Esperamos a que la red se calme, lo que indica que los nuevos resultados han cargado.
                 await page.WaitForLoadStateAsync(LoadState.NetworkIdle, new() { Timeout = 10000 });
                 pageCount++;
             }
             _logger.LogInformation("No hay más resultados. Se han cargado todas las páginas.");
-            // --- FIN DE LA LÓGICA DE PAGINACIÓN ---
 
             _logger.LogInformation("Extrayendo HTML de la página completamente cargada...");
             await page.ScreenshotAsync(new() { Path = "icij_final_page_screenshot.png", FullPage = true });

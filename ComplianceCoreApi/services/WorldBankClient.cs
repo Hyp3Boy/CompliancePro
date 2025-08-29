@@ -63,9 +63,8 @@ public class WorldBankClient : IEntitySearchProvider
 
         try
         {
-            await page.GotoAsync(PageUrl, new() { Timeout = 20000 }); // Aumentamos el timeout para la navegación
+            await page.GotoAsync(PageUrl, new() { Timeout = 20000 }); 
 
-            // Esperamos a que nuestra tarea se complete o a que pasen 20 segundos.
             var completedTask = await Task.WhenAny(tcs.Task, Task.Delay(20000));
             
             if (completedTask == tcs.Task)

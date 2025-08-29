@@ -17,7 +17,7 @@ public record CreateProveedorDto(
 public record UpdateProveedorDto(
     [Required] string RazonSocial,
     string? NombreComercial,
-    [Required] string IdentificacionTributaria, // <-- AÑADIR ESTA LÍNEA
+    [Required] string IdentificacionTributaria,
     string? NumeroTelefonico,
     [Required][EmailAddress] string CorreoElectronico,
     string? SitioWeb,

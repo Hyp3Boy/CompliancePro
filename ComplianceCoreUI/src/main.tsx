@@ -11,7 +11,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {/* 2. Envuelve tu App con el AuthProvider */}
       <AuthProvider>
         <App />
       </AuthProvider>

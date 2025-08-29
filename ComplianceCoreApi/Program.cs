@@ -13,9 +13,6 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// =================================================================
-// 1. REGISTRO DE SERVICIOS (Contenedor de Inyección de Dependencias)
-// =================================================================
 var myAppCorsPolicy = "myAppCorsPolicy";
 builder.Services.AddCors(options =>
 {
@@ -29,10 +26,8 @@ builder.Services.AddCors(options =>
 });
 builder.Services.AddEndpointsApiExplorer();
 
-// Configuración de Swagger/OpenAPI para que pida un token de autenticación y una API Key
 builder.Services.AddSwaggerGen(options =>
 {
-    // Definición para el Token JWT (Bearer)
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,
@@ -52,7 +47,6 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 
-    // Definición para la API Key
     options.AddSecurityDefinition("ApiKey", new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,
@@ -77,19 +71,16 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 
-// --- REGISTRO DE TODOS LOS SCRAPERS ---
 builder.Services.AddScoped<IEntitySearchProvider, WorldBankClient>();
 builder.Services.AddScoped<IEntitySearchProvider, ICIJClient>();
 builder.Services.AddScoped<IEntitySearchProvider, OFACClient>();
 builder.Services.AddScoped<IComplianceSearchService, ComplianceSearchService>();
 
-// Servicios para la base de datos y autenticación
 builder.Services.AddSingleton<DapperContext>();
 builder.Services.AddScoped<IProveedorRepository, ProveedorRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 
-// --- CONFIGURACIÓN DE AUTENTICACIÓN JWT ---
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -106,7 +97,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 builder.Services.AddAuthorization();
 
-// --- CONFIGURACIÓN DE RATE LIMITING (LÍMITE DE PETICIONES) ---
 builder.Services.AddRateLimiter(options =>
 {
     options.AddFixedWindowLimiter(policyName: "fixed", opt =>
@@ -120,9 +110,6 @@ builder.Services.AddRateLimiter(options =>
 });
 
 
-// =================================================================
-// 2. CONSTRUCCIÓN Y PIPELINE HTTP
-// =================================================================
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -133,22 +120,14 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseCors(myAppCorsPolicy);
 
-// --- AÑADIR MIDDLEWARE DE RATE LIMITING ---
 app.UseRateLimiter();
 
-// --- AÑADIR MIDDLEWARE DE API KEY ---
 app.UseMiddleware<ApiKeyAuthMiddleware>();
 
-// Middleware de autenticación JWT
 app.UseAuthentication();
 app.UseAuthorization();
 
 
-// =================================================================
-// 3. DEFINICIÓN DE ENDPOINTS
-// =================================================================
-
-// --- Grupo de Endpoints de Búsqueda (Protegido por API Key y Rate Limiter) ---
 var searchApi = app.MapGroup("/api/search");
 
 searchApi.MapGet("/", async (string entityName, IComplianceSearchService searchService) =>
@@ -168,7 +147,6 @@ searchApi.MapGet("/", async (string entityName, IComplianceSearchService searchS
 .WithOpenApi();
 
 
-// --- Grupo de Endpoints de Autenticación (Público, con Rate Limiter) ---
 var authApi = app.MapGroup("/api/auth").RequireRateLimiting("fixed");
 
 authApi.MapPost("/register", async (UserRegisterDto dto, IUsuarioRepository repo) =>
@@ -219,7 +197,6 @@ authApi.MapPost("/login", async (UserLoginDto dto, IUsuarioRepository repo, ITok
 .WithName("LoginUser");
 
 
-// --- Grupo de Endpoints de Proveedores (Protegido por JWT) ---
 var proveedoresApi = app.MapGroup("/api/proveedores").RequireAuthorization();
 
 proveedoresApi.MapGet("/", async (IProveedorRepository repo) =>
@@ -281,20 +258,12 @@ proveedoresApi.MapDelete("/{id:int}", async (int id, IProveedorRepository repo) 
 });
 
 
-// Endpoint de ejemplo para obtener un usuario por ID, útil para el "CreatedAtRoute"
 app.MapGet("/api/users/{id:int}", [Authorize] (int id) => {
-    // En una aplicación real, aquí buscarías el usuario en la BD.
     return Results.Ok(new { Message = $"Ruta para obtener usuario con ID {id}"});
 }).WithName("GetUserById").ExcludeFromDescription();
 
 
-// =================================================================
-// 4. EJECUCIÓN DE LA APLICACIÓN
-// =================================================================
 app.Run();
 
 
-// =================================================================
-// 5. DEFINICIONES DE TIPOS AUXILIARES
-// =================================================================
 public record SearchResult(int HitCount, List<Hit> Results);

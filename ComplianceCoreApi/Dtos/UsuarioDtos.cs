@@ -14,14 +14,12 @@ public record UserLoginDto(
     [Required] string Password
 );
 
-// NUEVO DTO para la información del usuario
 public record UserInfoDto(
     string Id,
     string? Name,
     string Email
 );
 
-// DTO MODIFICADO para la respuesta del login
 public record LoginSuccessResponseDto(
     string AccessToken,
     UserInfoDto User

@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "b3c67ddc-dea7-4bc0-ba6a-73b20ec4069f",
+		"name": "CompliancePro API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27253791"
+	},
+	"item": [
+		{
+			"name": "Get Search of existent entity",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "a5YKabpCX10n7o8MCl9PMswe8s4VVft2wc34ILaeQO7QRQbd6dxTDxWr4KwYWtM5OoeVYfEC0Yh7lM60LhydbgduZFTsHthvqyzOO2h2bBaJCe8op136Zz4N4SzRmUm6",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-Api-Key",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5234/api/search?entityName=Pacific",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5234",
+					"path": [
+						"api",
+						"search"
+					],
+					"query": [
+						{
+							"key": "entityName",
+							"value": "Pacific"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Search of non existent entity",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "a5YKabpCX10n7o8MCl9PMswe8s4VVft2wc34ILaeQO7QRQbd6dxTDxWr4KwYWtM5OoeVYfEC0Yh7lM60LhydbgduZFTsHthvqyzOO2h2bBaJCe8op136Zz4N4SzRmUm6",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-Api-Key",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5234/api/search?entityName=Pacific",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5234",
+					"path": [
+						"api",
+						"search"
+					],
+					"query": [
+						{
+							"key": "entityName",
+							"value": "PanConHuevera"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

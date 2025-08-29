@@ -1,11 +1,10 @@
 import { Modal, Box, Typography, TextField, Button, Grid } from '@mui/material';
 import type { Supplier } from '../../types/supplier';
 import { useEffect } from 'react';
-import { supplierSchema, type SupplierFormData } from '../../utils/validationSchemas'; // <-- 1. Importar
+import { supplierSchema, type SupplierFormData } from '../../utils/validationSchemas';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-// El estilo se mantiene igual
 const style = {
   position: 'absolute',
   top: '50%', left: '50%',
@@ -42,7 +41,7 @@ export const SupplierModal = ({ open, onClose, onSave, supplierToEdit }: Supplie
         // Establece valores por defecto para un nuevo proveedor
         reset({
           fechaUltimaEdicion: new Date().toISOString().split('T')[0],
-          // Puedes añadir otros valores por defecto aquí
+          
         });
       }
     }
@@ -51,20 +50,18 @@ export const SupplierModal = ({ open, onClose, onSave, supplierToEdit }: Supplie
   // 4. Esta función solo se ejecuta si la validación es exitosa
   const onFormSubmit = (data: SupplierFormData) => {
     onSave(data as Supplier);
-    onClose(); // La lógica de cerrar el modal se puede mover aquí
+    onClose();
   };
 
   const title = supplierToEdit ? 'Editar Proveedor' : 'Añadir Nuevo Proveedor';
 
   return (
     <Modal open={open} onClose={onClose}>
-      {/* 5. El Box ahora es un formulario y usa handleSubmit */}
       <Box component="form" onSubmit={handleSubmit(onFormSubmit)} sx={style}>
         <Typography variant="h6" component="h2" sx={{ pb: 2 }}>{title}</Typography>
         <Grid container spacing={2} sx={{ pt: 2, pr: 2 }}>
           {/* Fila 1 */}
           <Grid size={{ xs: 12, sm: 6 }}>
-            {/* 6. Conectar cada TextField a React Hook Form */}
             <TextField
               {...register('nombreComercial')}
               label="Nombre Comercial"
@@ -166,7 +163,6 @@ export const SupplierModal = ({ open, onClose, onSave, supplierToEdit }: Supplie
         </Grid>
         <Box sx={{ mt: 3, display: 'flex', justifyContent: 'flex-end' }}>
           <Button onClick={onClose} sx={{ mr: 1 }}>Cancelar</Button>
-          {/* 7. El botón de guardado ahora es de tipo 'submit' */}
           <Button type="submit" variant="contained" color="primary">Guardar</Button>
         </Box>
       </Box>

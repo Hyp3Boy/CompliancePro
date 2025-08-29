@@ -26,5 +26,4 @@ export const supplierSchema = z.object({
   fechaUltimaEdicion: z.string().optional(),
 });
 
-// Inferimos el tipo de TypeScript directamente del esquema
 export type SupplierFormData = z.infer<typeof supplierSchema>;

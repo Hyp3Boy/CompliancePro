@@ -17,7 +17,6 @@ interface SupplierTableProps {
 
 export const SupplierTable = ({ suppliers, onEdit, onDelete, onScreening }: SupplierTableProps) => {
   const theme = useTheme();
-  // Ocultar columnas en pantallas pequeñas para una mejor experiencia móvil
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const columns: GridColDef[] = [
@@ -64,7 +63,7 @@ export const SupplierTable = ({ suppliers, onEdit, onDelete, onScreening }: Supp
                 }}
                 pageSizeOptions={[10, 25, 50]}
                 disableRowSelectionOnClick
-                autoHeight // Se ajusta a la altura del contenido
+                autoHeight
             />
         </Box>
     </Paper>

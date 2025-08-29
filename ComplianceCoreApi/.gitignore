@@ -1,0 +1,62 @@
+# #################### #
+# Archivos específicos #
+# #################### #
+
+# Excluir los archivos de depuración generados por los scrapers
+*_screenshot.png
+*_page.html
+
+# ####################### #
+# Visual Studio / VS Code #
+# ####################### #
+
+# Archivos de configuración y estado del editor
+.vscode
+.vs
+.idea
+*.suo
+*.user
+*.sln.docstates
+
+# #################### #
+# .NET / C#            #
+# #################### #
+
+# Carpetas de compilación (binarios y archivos intermedios)
+[Bb]in/
+[Oo]bj/
+
+# Configuración de desarrollo local que puede contener secretos
+appsettings.Development.json
+
+# Archivos de secretos de usuario
+secrets.json
+*.secrets.json
+
+# Paquetes NuGet (en proyectos antiguos, aunque es bueno tenerlo)
+[Pp]ackages/
+
+# Archivos de caché y logs de .NET
+*.log
+*.tmp
+*.temp
+
+# Archivos generados por herramientas de .NET
+project.lock.json
+project.assets.json
+*.generated.cs
+
+# Archivos de publicación
+publish/
+dist/
+
+# #################### #
+# Sistema Operativo    #
+# #################### #
+
+# Archivos de macOS
+.DS_Store
+
+# Archivos de Windows
+Thumbs.db
+ehthumbs.db

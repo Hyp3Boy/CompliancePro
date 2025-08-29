@@ -1,0 +1,83 @@
+-- ========= TABLA DE PROVEEDORES (Proveedores) =========
+-- Esta tabla almacenará toda la información relevante de los proveedores,
+-- según los requerimientos del ejercicio.
+drop table IF EXISTS Proveedores;
+
+CREATE TABLE Proveedores (
+    -- ID único para cada proveedor, se auto-incrementa.
+    ProveedorID INT PRIMARY KEY IDENTITY(1,1),
+
+    -- Razón social de la empresa. Es un campo obligatorio.
+    RazonSocial NVARCHAR(255) NOT NULL,
+
+    -- Nombre comercial o de fantasía de la empresa.
+    NombreComercial NVARCHAR(255) NULL,
+
+    -- Identificación tributaria (ej. CUIT, RUC, NIT). Almacenado como texto
+    -- para preservar ceros a la izquierda y guiones. Es un campo único y obligatorio.
+    IdentificacionTributaria VARCHAR(20) NOT NULL UNIQUE,
+
+    -- Número de teléfono de contacto.
+    NumeroTelefonico VARCHAR(30) NULL,
+
+    -- Correo electrónico de contacto, debe ser único.
+    CorreoElectronico NVARCHAR(254) NOT NULL UNIQUE,
+
+    -- Sitio web oficial del proveedor.
+    SitioWeb NVARCHAR(2083) NULL,
+
+    -- Dirección física completa del proveedor.
+    DireccionFisica NVARCHAR(500) NULL,
+
+    -- País de origen del proveedor.
+    Pais NVARCHAR(100) NOT NULL,
+
+    -- Facturación anual en dólares. Se usa DECIMAL para precisión financiera.
+    FacturacionAnualUSD DECIMAL(18, 2) NULL,
+
+    -- Fecha y hora de la última modificación del registro.
+    -- Se actualiza automáticamente con la fecha y hora actual al crear o modificar.
+    FechaUltimaEdicion DATETIME2 DEFAULT GETUTCDATE() NOT NULL
+);
+GO
+
+-- ========= TABLA DE USUARIOS (Usuarios) =========
+-- Esta tabla es para gestionar los usuarios que podrán acceder a la aplicación
+-- y realizar las operaciones de consulta y administración de proveedores.
+
+CREATE TABLE Usuarios (
+    -- ID único para cada usuario, se auto-incrementa.
+    UsuarioID INT PRIMARY KEY IDENTITY(1,1),
+
+    -- Nombre de usuario para el inicio de sesión. Debe ser único.
+    NombreUsuario NVARCHAR(100) NOT NULL UNIQUE,
+
+    -- Correo electrónico del usuario. Debe ser único.
+    CorreoElectronico NVARCHAR(254) NOT NULL UNIQUE,
+
+    -- IMPORTANTE: Almacena el HASH de la contraseña, NUNCA la contraseña en texto plano.
+    -- La longitud puede variar según el algoritmo de hashing que se utilice (ej. bcrypt, Argon2).
+    PasswordHash NVARCHAR(MAX) NOT NULL,
+
+    -- Nombre completo del usuario.
+    NombreCompleto NVARCHAR(200) NULL,
+
+    -- Fecha y hora de creación del registro del usuario.
+    FechaCreacion DATETIME2 DEFAULT GETUTCDATE() NOT NULL
+);
+GO
+
+-- ========= INSERCIÓN DE DATOS DE EJEMPLO (Opcional) =========
+-- Puedes usar estas líneas para agregar datos de prueba a tus tablas
+-- y verificar que la estructura funciona correctamente.
+
+-- Insertar un proveedor de ejemplo
+-- INSERT INTO Proveedores (RazonSocial, NombreCommercial, IdentificacionTributaria, NumeroTelefonico, CorreoElectronico, SitioWeb, DireccionFisica, Pais, FacturacionAnualUSD)
+-- VALUES
+-- ('Tech Solutions S.A.', 'TechSol', '20-12345678-9', '+1-555-123-4567', 'contacto@techsolutions.com', 'https://www.techsolutions.com', 'Av. Siempreviva 742, Springfield', 'EE.UU.', 5000000.75);
+
+-- Insertar un usuario de ejemplo (NOTA: El PasswordHash es un valor ficticio)
+-- INSERT INTO Usuarios (NombreUsuario, CorreoElectronico, PasswordHash, NombreCompleto)
+-- VALUES
+-- ('admin', 'admin@suempresa.com', 'aqui_iria_el_hash_de_la_contraseña_generado_en_el_backend', 'Administrador del Sistema');
+-- GO

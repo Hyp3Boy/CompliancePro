@@ -1,7 +1,3 @@
-# CompliancePro
-
----
-
 # CompliancePro Search Tool
 
 ![Project Demo GIF](https://via.placeholder.com/800x400.gif?text=Añade+un+GIF+de+demostración+aquí)

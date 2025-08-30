@@ -118,7 +118,7 @@ export const SupplierModal = ({ open, onClose, onSave, supplierToEdit }: Supplie
           </Grid>
           <Grid size={{ xs: 12, sm: 6 }}>
             <TextField
-              {...register('facturacionAnualUSD')}
+              {...register('facturacionAnualUSD', { valueAsNumber: true })}
               label="Facturación Anual (USD)"
               type="number"
               fullWidth
